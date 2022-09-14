@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/cmake-build-debug/
+cmake_ninja_workdir = D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/Lab1_Sistope/cmake-build-debug/
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "D:\Universidad\6to Semestre\Sistemas Operativos\Laboratorio\Lab 1\cmake-build-debug" && "D:\Archivos de programas\JetBrains\CLion 2021.3.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "D:\Universidad\6to Semestre\Sistemas Operativos\Laboratorio\Lab 1\Lab1_Sistope\cmake-build-debug" && "D:\Archivos de programas\JetBrains\CLion 2021.3.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -60,14 +60,32 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_Lab_1: phony || CMakeFiles/Lab_1.dir
 
-build CMakeFiles/Lab_1.dir/main.c.obj: C_COMPILER__Lab_1_Debug D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/main.c || cmake_object_order_depends_target_Lab_1
-  DEP_FILE = CMakeFiles\Lab_1.dir\main.c.obj.d
+build CMakeFiles/Lab_1.dir/lab1.c.obj: C_COMPILER__Lab_1_Debug D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/Lab1_Sistope/lab1.c || cmake_object_order_depends_target_Lab_1
+  DEP_FILE = CMakeFiles\Lab_1.dir\lab1.c.obj.d
   FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles\Lab_1.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab_1.dir
 
-build CMakeFiles/Lab_1.dir/functions.c.obj: C_COMPILER__Lab_1_Debug D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/functions.c || cmake_object_order_depends_target_Lab_1
+build CMakeFiles/Lab_1.dir/functions.c.obj: C_COMPILER__Lab_1_Debug D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/Lab1_Sistope/functions.c || cmake_object_order_depends_target_Lab_1
   DEP_FILE = CMakeFiles\Lab_1.dir\functions.c.obj.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles\Lab_1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_1.dir
+
+build CMakeFiles/Lab_1.dir/padre.c.obj: C_COMPILER__Lab_1_Debug D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/Lab1_Sistope/padre.c || cmake_object_order_depends_target_Lab_1
+  DEP_FILE = CMakeFiles\Lab_1.dir\padre.c.obj.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles\Lab_1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_1.dir
+
+build CMakeFiles/Lab_1.dir/hijo.c.obj: C_COMPILER__Lab_1_Debug D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/Lab1_Sistope/hijo.c || cmake_object_order_depends_target_Lab_1
+  DEP_FILE = CMakeFiles\Lab_1.dir\hijo.c.obj.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles\Lab_1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_1.dir
+
+build CMakeFiles/Lab_1.dir/structures.c.obj: C_COMPILER__Lab_1_Debug D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/Lab1_Sistope/structures.c || cmake_object_order_depends_target_Lab_1
+  DEP_FILE = CMakeFiles\Lab_1.dir\structures.c.obj.d
   FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles\Lab_1.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab_1.dir
@@ -80,7 +98,7 @@ build CMakeFiles/Lab_1.dir/functions.c.obj: C_COMPILER__Lab_1_Debug D$:/Universi
 #############################################
 # Link the executable Lab_1.exe
 
-build Lab_1.exe: C_EXECUTABLE_LINKER__Lab_1_Debug CMakeFiles/Lab_1.dir/main.c.obj CMakeFiles/Lab_1.dir/functions.c.obj
+build Lab_1.exe: C_EXECUTABLE_LINKER__Lab_1_Debug CMakeFiles/Lab_1.dir/lab1.c.obj CMakeFiles/Lab_1.dir/functions.c.obj CMakeFiles/Lab_1.dir/padre.c.obj CMakeFiles/Lab_1.dir/hijo.c.obj CMakeFiles/Lab_1.dir/structures.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab_1.dir
@@ -95,7 +113,7 @@ build Lab_1.exe: C_EXECUTABLE_LINKER__Lab_1_Debug CMakeFiles/Lab_1.dir/main.c.ob
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "D:\Universidad\6to Semestre\Sistemas Operativos\Laboratorio\Lab 1\cmake-build-debug" && "D:\Archivos de programas\JetBrains\CLion 2021.3.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S"D:\Universidad\6to Semestre\Sistemas Operativos\Laboratorio\Lab 1" -B"D:\Universidad\6to Semestre\Sistemas Operativos\Laboratorio\Lab 1\cmake-build-debug""
+  COMMAND = cmd.exe /C "cd /D "D:\Universidad\6to Semestre\Sistemas Operativos\Laboratorio\Lab 1\Lab1_Sistope\cmake-build-debug" && "D:\Archivos de programas\JetBrains\CLion 2021.3.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S"D:\Universidad\6to Semestre\Sistemas Operativos\Laboratorio\Lab 1\Lab1_Sistope" -B"D:\Universidad\6to Semestre\Sistemas Operativos\Laboratorio\Lab 1\Lab1_Sistope\cmake-build-debug""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -113,7 +131,7 @@ build Lab_1: phony Lab_1.exe
 # =============================================================================
 
 #############################################
-# Folder: D:/Universidad/6to Semestre/Sistemas Operativos/Laboratorio/Lab 1/cmake-build-debug
+# Folder: D:/Universidad/6to Semestre/Sistemas Operativos/Laboratorio/Lab 1/Lab1_Sistope/cmake-build-debug
 
 build all: phony Lab_1.exe
 
