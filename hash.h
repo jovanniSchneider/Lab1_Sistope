@@ -23,7 +23,7 @@ TDAlista ** crearHash(){
     tm=localtime(&t);
     strftime(y, 100, "%Y", tm);
     year = atoi(y);
-    TDAlista** M=(TDAlista**)malloc(sizeof(TDAlista*)*(year-1985));
+    TDAlista** M=(TDAlista**)malloc(sizeof(TDAlista*)*(year-1985));// 37 espacios
     for (int i = 0; i < year-1985; ++i) {
         M[i] = crearListaVacia();
     }
