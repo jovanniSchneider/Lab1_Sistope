@@ -7,11 +7,12 @@
 // Salidas: int
 // Descripción: separa un string hasta obtener el dato que representa el year
 int getYear(char * string) {
-    //980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No
+    char * string2;
+    strcpy(string2,string);
     char separacion[2] = ",";
     char * pedacito;
     int year;
-    pedacito = strtok(string,separacion);//980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No
+    pedacito = strtok(string2,separacion);//980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No
     for (int i = 0; i<5;i++){
         pedacito = strtok(NULL,separacion);
     }

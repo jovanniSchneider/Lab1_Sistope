@@ -9,7 +9,7 @@
 //Salidas: Un entero correspondiente a la casilla de la tabla hash
 //Descripcion: Calcula la casilla de la tabla
 int hashFunction(int number){
-    return number - 1985;
+    return number - 1990;
 }
 //Entradas: void
 //Salidas: Un arreglo de listas enlazadas que corresponde a la tabla hash

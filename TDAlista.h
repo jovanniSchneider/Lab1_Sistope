@@ -61,12 +61,11 @@ void recorrerLista(TDAlista* lista)
 //Funcion: modifica la lista entregada, agregando en un inicio el dato
 void insertarInicio(TDAlista* lista, char * dato)
 {
-  nodo* nuevo=(nodo*)malloc(sizeof(nodo));
-  nuevo->dato=(int *)malloc(sizeof(int)*2);
-  nuevo->dato[0] = dato[0];
-  nuevo->dato[1] = dato[1];
-  nuevo->siguiente = lista->inicio;
-  lista->inicio=nuevo;
+    nodo* nuevo=(nodo*)malloc(sizeof(nodo));
+    nuevo->dato=(char *)malloc(sizeof(char)*150);
+    strcpy(nuevo->dato,dato);
+    nuevo->siguiente = lista->inicio;
+    lista->inicio=nuevo;
 }
 
 //Entrada: tda lista
