@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "functions.c"
-#include "structures.c"
+#include "functions.h"
+#include "game.h"
+
 
 int main(int argc, char * argv[]) {
     char input[30] = "datos_juegos.csv";

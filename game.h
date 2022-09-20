@@ -1,6 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
-typedef struct juego{
+typedef struct game{
     int ID;
     char * name;
     int ageRest;
@@ -11,13 +11,13 @@ typedef struct juego{
     int win;
     int mac;
     int linux;
-}juego;
+}game;
 
-// Entradas: se reciben los datos que conforman la estructura de un juego
-// Salidas: se retorna un juego*
-// Descripción: se asigna memoria a un juego* y se asignan los valores correspondientes
-juego* buildJuego(int ID, char * name, int ageRest, float price, int comSoon, int year, int free, int win,int mac,int linux){
-    juego* nuevo= (juego*)malloc(sizeof (juego));
+// Entradas: se reciben los datos que conforman la estructura de un game
+// Salidas: se retorna un game*
+// Descripción: se asigna memoria a un game* y se asignan los valores correspondientes
+game * buildJuego(int ID, char * name, int ageRest, float price, int comSoon, int year, int free, int win,int mac,int linux){
+    game* nuevo= (game*)malloc(sizeof (game));
     nuevo->ID=ID;
     nuevo->ageRest=ageRest;
     nuevo->price=price;

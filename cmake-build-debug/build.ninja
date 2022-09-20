@@ -90,6 +90,12 @@ build CMakeFiles/Lab_1.dir/structures.c.obj: C_COMPILER__Lab_1_Debug D$:/Univers
   OBJECT_DIR = CMakeFiles\Lab_1.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab_1.dir
 
+build CMakeFiles/Lab_1.dir/jaja.c.obj: C_COMPILER__Lab_1_Debug D$:/Universidad/6to$ Semestre/Sistemas$ Operativos/Laboratorio/Lab$ 1/Lab1_Sistope/jaja.c || cmake_object_order_depends_target_Lab_1
+  DEP_FILE = CMakeFiles\Lab_1.dir\jaja.c.obj.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles\Lab_1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Lab_1
@@ -98,7 +104,7 @@ build CMakeFiles/Lab_1.dir/structures.c.obj: C_COMPILER__Lab_1_Debug D$:/Univers
 #############################################
 # Link the executable Lab_1.exe
 
-build Lab_1.exe: C_EXECUTABLE_LINKER__Lab_1_Debug CMakeFiles/Lab_1.dir/lab1.c.obj CMakeFiles/Lab_1.dir/functions.c.obj CMakeFiles/Lab_1.dir/padre.c.obj CMakeFiles/Lab_1.dir/hijo.c.obj CMakeFiles/Lab_1.dir/structures.c.obj
+build Lab_1.exe: C_EXECUTABLE_LINKER__Lab_1_Debug CMakeFiles/Lab_1.dir/lab1.c.obj CMakeFiles/Lab_1.dir/functions.c.obj CMakeFiles/Lab_1.dir/padre.c.obj CMakeFiles/Lab_1.dir/hijo.c.obj CMakeFiles/Lab_1.dir/structures.c.obj CMakeFiles/Lab_1.dir/jaja.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab_1.dir
