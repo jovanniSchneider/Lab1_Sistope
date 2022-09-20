@@ -3,7 +3,26 @@
 #include <getopt.h>
 #include <string.h>
 #include <ctype.h>
+// Entradas: char*
+// Salidas: int
+// Descripción: separa un string hasta obtener el dato que representa el year
+int getYear(char * string) {
+    //980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No
+    char separacion[2] = ",";
+    char * pedacito;
+    int year;
+    pedacito = strtok(string,separacion);//980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No
+    for (int i = 0; i<5;i++){
+        pedacito = strtok(NULL,separacion);
+    }
+    year = atoi(pedacito);
+    printf("%d\n",year);
+    return year;
+}
 
+// Entradas: entra un char*
+// Salidas: un int 0 o 1
+// Descripción: verifica que el string de entrada este conformado solo por digitos
 int digitValidate(char * string) {
     for (int i = 0; i < strlen(string); ++i) {
         if (!isdigit(string[i])) {
@@ -16,6 +35,10 @@ int digitValidate(char * string) {
     return 1;
 }
 
+// Entradas: parametros ingresados por consola los cuales podrian variar segun la entrada del usuario
+// Salidas: int 0 o 1
+// Descripción: verifica los parametros ingresados por consola para corroborar que cumplan ciertos parametros para el
+// correcto funcionamiento del codigo.
 int validate(int argc, char * argv[], char input[], char output[], float * min_price, int * min_year, int * flag){
     int opt;
     while((opt = getopt(argc,argv,":bi:o:d:p: :h"))!= -1){
@@ -61,7 +84,8 @@ int validate(int argc, char * argv[], char input[], char output[], float * min_p
                 printf("Missing arg for %c\n",optopt);
         }
     }
-    if(*min_year == -1)
+    if(*min_year == -1) {
         return 0;
+    }
     return 1;
 }
