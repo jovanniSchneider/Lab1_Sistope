@@ -7,7 +7,7 @@
 // Salidas: int
 // Descripción: separa un string hasta obtener el dato que representa el year
 int getYear(char * string) {
-    char * string2;
+    char string2[150];
     strcpy(string2,string);
     char separacion[2] = ",";
     char * pedacito;
@@ -17,7 +17,6 @@ int getYear(char * string) {
         pedacito = strtok(NULL,separacion);
     }
     year = atoi(pedacito);
-    printf("%d\n",year);
     return year;
 }
 

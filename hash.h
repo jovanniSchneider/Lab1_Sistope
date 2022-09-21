@@ -4,7 +4,8 @@
 #endif //LAB_1_HASH_H
 #include "TDAlista.h"
 #include <time.h>
-#include "functions.h"
+#include "functions.c"
+
 //Entradas: Un entero que representa el año del game
 //Salidas: Un entero correspondiente a la casilla de la tabla hash
 //Descripcion: Calcula la casilla de la tabla
@@ -23,7 +24,7 @@ TDAlista ** crearHash(){
     tm=localtime(&t);
     strftime(y, 100, "%Y", tm);
     year = atoi(y);
-    TDAlista** M=(TDAlista**)malloc(sizeof(TDAlista*)*(year-1985));// 37 espacios
+    TDAlista** M=(TDAlista**)malloc(sizeof(TDAlista*)*(37));// 37 espacios
     for (int i = 0; i < year-1985; ++i) {
         M[i] = crearListaVacia();
     }

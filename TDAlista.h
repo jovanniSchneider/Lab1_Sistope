@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*------------- estructura de datos -------------*/
 //documentada con formato input,output,desc
