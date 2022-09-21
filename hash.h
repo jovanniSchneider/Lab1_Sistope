@@ -16,14 +16,7 @@ int hashFunction(int number){
 //Salidas: Un arreglo de listas enlazadas que corresponde a la tabla hash
 //Descripcion: genera una tabla hash
 TDAlista ** crearHash(){
-    time_t t;
-    struct tm *tm;
-    char y[100];
-    int year;
-    t=time(NULL);
-    tm=localtime(&t);
-    strftime(y, 100, "%Y", tm);
-    year = atoi(y);
+    int year = getActualYear();
     TDAlista** M=(TDAlista**)malloc(sizeof(TDAlista*)*(37));// 37 espacios
     for (int i = 0; i < year-1985; ++i) {
         M[i] = crearListaVacia();

@@ -3,19 +3,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "hash.h"
-//lee archivo y ordenar con la tabla
-void leerCSV(char* nombreArchivo){
+
+
+//Entradas Char* del nombre del archivo
+//Salidas TdaLista ** que trabaja como una tabla hash
+//Descripcion se lee el archivo solicitado por el usuario, el contenido de este csv se almacena en una tabla hash segun
+//            el year del juego en cuestion
+TDAlista ** leerCSV(char* nombreArchivo){
     FILE* fp;
     fp= fopen(nombreArchivo,"r");
-    char* string;
-    fscanf("%s",string);
+    TDAlista** hash=crearHash();
     char string[150];
-    while(NULL!= fgets(string,150,fp)){
-        printf("siguiente dato %s\n",string);
-        //LLAMADO
+    while(fgets(string,150,fp)!=NULL){
+        agregarDatoHash(string, hash);
     }
-    //980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No
-
+    fclose(fp);
+    return hash;
 }
 //crear el archivo intermedio
 

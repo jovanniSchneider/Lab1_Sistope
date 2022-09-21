@@ -3,6 +3,7 @@
 #include <getopt.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 // Entradas: char*
 // Salidas: int
 // Descripción: separa un string hasta obtener el dato que representa el year
@@ -88,4 +89,16 @@ int validate(int argc, char * argv[], char input[], char output[], float * min_p
         return 0;
     }
     return 1;
+}
+
+int getActualYear(){
+    time_t t;
+    struct tm *tm;
+    char y[100];
+    int year;
+    t=time(NULL);
+    tm=localtime(&t);
+    strftime(y, 100, "%Y", tm);
+    year = atoi(y);
+    return year;
 }
