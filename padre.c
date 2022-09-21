@@ -24,19 +24,19 @@ TDAlista ** leerCSV(char* nombreArchivo){
 //Salidas int que representa la cantidad de years que si tienen juegos
 //Descripcion crea un archivo que contiene la info de la tabla hash con el nombre ingresado, ademas de calcular
 //             los years con juegos, tambien dejando constancia de donde comienza cada year mediante ftell
-int crearArchivo(TDAlista** hash, char * nombreSalida){
+int crearArchivo(TDAlista** hash, char * nombreSalida, int pipe[2]){
     int largoHash = getActualYear()-1985;
     FILE * fp;
     fp = fopen(nombreSalida, "w");
     int cont = 0;
-    for(int i=0;i<(2022-1985);i++){
+    for(int i=0;i<largoHash;i++){
         if(!esListaVacia(hash[i])) {
             cont++;
             printf("ftell: %d\n",ftell(fp));//esto deja en cola del pipe la actual posicion del puntero
-            recorrerLista(hash[i], fp);
         }
         liberarLista(hash[i]);
     }
+    free(hash);
     fclose(fp);
     return cont;
 }
