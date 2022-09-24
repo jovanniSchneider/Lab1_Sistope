@@ -10,13 +10,13 @@ typedef struct game{
     int free;
     int win;
     int mac;
-    int linux;
+    int lix;
 }game;
 
 // Entradas: se reciben los datos que conforman la estructura de un game
 // Salidas: se retorna un game*
 // Descripción: se asigna memoria a un game* y se asignan los valores correspondientes
-game * buildJuego(int ID, char * name, int ageRest, float price, int comSoon, int year, int free, int win,int mac,int linux){
+game * buildJuego(int ID, char * name, int ageRest, float price, int comSoon, int year, int free, int win,int mac,int lix){
     game* nuevo= (game*)malloc(sizeof (game));
     nuevo->ID=ID;
     nuevo->ageRest=ageRest;
@@ -26,7 +26,7 @@ game * buildJuego(int ID, char * name, int ageRest, float price, int comSoon, in
     nuevo->free=free;
     nuevo->win=win;
     nuevo->mac=mac;
-    nuevo->linux=linux;
+    nuevo->lix=lix;
     strcpy(nuevo->name,name);
     return nuevo;
 }

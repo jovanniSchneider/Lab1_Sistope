@@ -1,10 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "functions.h"
 #include "game.h"
+#include "padre.c"
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 
 int main(int argc, char * argv[]) {
-    char input[30] = "datos_juegos.csv";
+    char input[30] = "datos_juegos_1000.csv";
     char output[30] = "output.txt";
     float min_price = 0;
     int min_year = -1;
@@ -19,26 +24,26 @@ int main(int argc, char * argv[]) {
         }
         int fd[2];
         int pid;
-        int buffer = 0;
-        int totalYears = 5; //Es solo de ejemplo, se debe calcular
+        long buffer = 41;
+        int totalYears; //Es solo de ejemplo, se debe calcular
         int stat;
         if(pipe(fd) == -1){
             printf("error\n");
             exit(-1);
         }
+        TDAlista  ** hash = leerCSV(input);
+        totalYears = crearArchivo(hash,"sortedGames.out",fd);
         for (int i = 0; i < totalYears; i++) {
             pid = fork();
             if(pid>0){
-                buffer+=1;
-                printf("buffer: %d\n", buffer);
-                write(fd[1],&buffer, sizeof(buffer));
                 wait(NULL);
             }
             if(pid == 0){
                 close(fd[1]);
+                //printf("%d\n",buffer);
                 read(fd[0],&buffer,sizeof(buffer));
-                printf("soy el hijo %d pid: %d\n", buffer,getpid());
-                exit(buffer);
+                printf("mi puntero es %ld\n", buffer);
+                break;
             }
         }
     }else {
