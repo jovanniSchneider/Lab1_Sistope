@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "functions.h"
 
 /*------------- estructura de datos -------------*/
 //documentada con formato input,output,desc
@@ -42,19 +43,25 @@ int esListaVacia(TDAlista* lista)
 //Entrada: Una lista de horarios y una funcion que debe recibir un nodo y un string
 //Salida: No entrega
 //Funcion: Recorre la lista enlazada y aplica la funcion pasada por parametro a cada nodo
-void recorrerLista(TDAlista* lista, FILE * fp)
+void recorrerLista(TDAlista* lista, FILE * fp, int flag)
 {
-  if (!esListaVacia(lista))
-  {
-    nodo* auxiliar=lista->inicio;
-    while (auxiliar!=NULL)
+    int cont = 0;
+    if (!esListaVacia(lista))
     {
-        fprintf(fp,"%s",auxiliar->dato);
-        auxiliar=auxiliar->siguiente;
+        nodo* auxiliar=lista->inicio;
+        if (flag){
+            printf("Juegos encontrados el año %d: ", getYear(auxiliar->dato));
+        }
+        while (auxiliar!=NULL)
+        {
+            fprintf(fp,"%s",auxiliar->dato);
+            cont++;
+            auxiliar=auxiliar->siguiente;
+        }
+        if(flag){
+            printf("%d\n",cont);
+        }
     }
-  }
-  else
-    printf("La lista esta vacia\n");
 }
 
 //Entrada: tda lista, un dato

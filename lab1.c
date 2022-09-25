@@ -25,14 +25,13 @@ int main(int argc, char * argv[]) {
         int fd[2];
         int pid;
         long buffer = 41;
-        int totalYears; //Es solo de ejemplo, se debe calcular
-        int stat;
+        int totalYears;
         if(pipe(fd) == -1){
             printf("error\n");
             exit(-1);
         }
-        TDAlista  ** hash = leerCSV(input);
-        totalYears = crearArchivo(hash,"sortedGames.out",fd);
+        TDAlista  ** hash = leerCSV(input,min_year);
+        totalYears = crearArchivo(hash,output,fd,flag,min_year);
         for (int i = 0; i < totalYears; i++) {
             pid = fork();
             if(pid>0){

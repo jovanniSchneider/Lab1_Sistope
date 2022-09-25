@@ -9,22 +9,24 @@
 //Entradas: Un entero que representa el año del game
 //Salidas: Un entero correspondiente a la casilla de la tabla hash
 //Descripcion: Calcula la casilla de la tabla
-int hashFunction(int number){
-    return number - 1990;
+int hashFunction(int number, int min_year){
+    return number - min_year;
 }
 //Entradas: void
 //Salidas: Un arreglo de listas enlazadas que corresponde a la tabla hash
 //Descripcion: genera una tabla hash
-TDAlista ** crearHash(){
+TDAlista ** crearHash(int min_year){
     int year = getActualYear();
-    TDAlista** M=(TDAlista**)malloc(sizeof(TDAlista*)*(37));// 37 espacios
-    for (int i = 0; i < year-1985; ++i) {
+    TDAlista** M=(TDAlista**)malloc(sizeof(TDAlista*)*(year-min_year+5));
+    for (int i = 0; i < year-min_year+5; ++i) {
         M[i] = crearListaVacia();
     }
     return M;
 }
 
-void agregarDatoHash(char * datos, TDAlista ** hash){
+void agregarDatoHash(char * datos, TDAlista ** hash,int min_year){
     int year = getYear(datos);
-    insertarInicio(hash[hashFunction(year)],datos);
+    if(year>=min_year) {
+        insertarInicio(hash[hashFunction(year, min_year)], datos);
+    }
 }
