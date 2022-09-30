@@ -21,6 +21,20 @@ int getYear(char * string) {
     return year;
 }
 
+float getPrice(char * string){
+    char string2[150];
+    strcpy(string2,string);
+    char separacion[2] = ",";
+    char * pedacito;
+    int price;
+    pedacito = strtok(string2,separacion);//980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No
+    for (int i = 0; i<3;i++){
+        pedacito = strtok(NULL,separacion);
+    }
+    price = atof(pedacito);
+    return price;
+}
+
 // Entradas: entra un char*
 // Salidas: un int 0 o 1
 // Descripción: verifica que el string de entrada este conformado solo por digitos

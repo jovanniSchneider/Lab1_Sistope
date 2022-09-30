@@ -3,9 +3,9 @@
 #include "functions.h"
 #include "game.h"
 #include "padre.c"
-#include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include "hijo.c"
 
 
 int main(int argc, char * argv[]) {
@@ -30,18 +30,21 @@ int main(int argc, char * argv[]) {
             printf("error\n");
             exit(-1);
         }
-        TDAlista  ** hash = leerCSV(input,min_year);
+        TDAlista  ** hash = leerCSV(input,min_year,min_price);
         totalYears = crearArchivo(hash,output,fd,flag,min_year);
         for (int i = 0; i < totalYears; i++) {
+            FILE * fp;
+            fp = fopen(output,"r");
             pid = fork();
             if(pid>0){
                 wait(NULL);
+                fclose(fp);
             }
             if(pid == 0){
                 close(fd[1]);
                 //printf("%d\n",buffer);
                 read(fd[0],&buffer,sizeof(buffer));
-                printf("mi puntero es %ld\n", buffer);
+                leerArchivo(fp,buffer);
                 break;
             }
         }

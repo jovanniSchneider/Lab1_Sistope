@@ -24,9 +24,10 @@ TDAlista ** crearHash(int min_year){
     return M;
 }
 
-void agregarDatoHash(char * datos, TDAlista ** hash,int min_year){
+void agregarDatoHash(char * datos, TDAlista ** hash,int min_year,int min_price){
     int year = getYear(datos);
-    if(year>=min_year) {
+    int price = getPrice(datos);
+    if(year>=min_year && price >=min_price) {
         insertarInicio(hash[hashFunction(year, min_year)], datos);
     }
 }

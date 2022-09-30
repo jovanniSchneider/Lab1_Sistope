@@ -9,13 +9,13 @@
 //Salidas TdaLista ** que trabaja como una tabla hash
 //Descripcion se lee el archivo solicitado por el usuario, el contenido de este csv se almacena en una tabla hash segun
 //            el year del juego en cuestion
-TDAlista ** leerCSV(char nombreArchivo[30],int min_year){
+TDAlista ** leerCSV(char nombreArchivo[30],int min_year,int min_price){
     FILE* fp;
     fp= fopen(nombreArchivo,"r");
     TDAlista** hash=crearHash(min_year);
     char string[150];
     while(fgets(string,150,fp)!=NULL){
-        agregarDatoHash(string,hash,min_year);
+        agregarDatoHash(string,hash,min_year,min_price);
     }
     fclose(fp);
     return hash;
