@@ -32,22 +32,25 @@ int main(int argc, char * argv[]) {
         }
         TDAlista  ** hash = leerCSV(input,min_year,min_price);
         totalYears = crearArchivo(hash,output,fd,flag,min_year);
+        //abrimos el archivo 
+        FILE * fp;
+        fp = fopen(output,"r");
         for (int i = 0; i < totalYears; i++) {
-            FILE * fp;
-            fp = fopen(output,"r");
-            pid = fork();
+            pid = fork();//creamos n hijos
             if(pid>0){
-                wait(NULL);
-                fclose(fp);
+                //espera el estatus de dicho hijo para recien crear al sgte hijo
+                wait(NULL);  
             }
-            if(pid == 0){
-                close(fd[1]);
-                //printf("%d\n",buffer);
-                read(fd[0],&buffer,sizeof(buffer));
-                leerArchivo(fp,buffer);
-                break;
+            if(pid == 0){//si es hijo
+                close(fd[1]);//comunicacion del pipe
+                read(fd[0],&buffer,sizeof(buffer));//leemos y guardamos donde le corresponde del archivo
+                //leerArchivo(fp,buffer,list);//trabajamos con dicha info CREAR LIST
+                //aqui debe ir un 
+                //exit(1); //para que el padre rompa su espera 
+                break;//mientras con eso nos aseguramos que los hijos no se reproduzcan
             }
         }
+        fclose(fp);
     }else {
         printf("Por favor ingrese una entrada correcta\n");
         printf("Utilice -h para ver las indicaciones de ayuda\n");

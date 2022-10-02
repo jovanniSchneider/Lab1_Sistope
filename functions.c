@@ -20,7 +20,22 @@ int getYear(char * string) {
     year = atoi(pedacito);
     return year;
 }
+// Entradas: char*
+// Salidas: int
+// Descripción: transforma un char* a bool(int 0 o 1)
+int convertirBool(char * string) {
+    //True,False,Yes,No
+    if((strcmp(string,"True")==0)||(strcmp(string,"Yes")==0)){
+        return 1;
+    }else if((strcmp(string,"False")==0)||(strcmp(string,"No")==0)){
+        return 0;
+    }
+    return -1;
+}
 
+//Entradas: string
+//Salidas: float
+//Descripcion: separa un string hasta obtener el dato que representa el precio
 float getPrice(char * string){
     char string2[150];
     strcpy(string2,string);
@@ -105,6 +120,9 @@ int validate(int argc, char * argv[], char input[], char output[], float * min_p
     return 1;
 }
 
+//Entradas: void
+//Salidas: Un entero que representa el year actual del SO
+//Descripcion: Cmediante funciones de time.h obtiene el year
 int getActualYear(){
     time_t t;
     struct tm *tm;

@@ -24,6 +24,9 @@ TDAlista ** crearHash(int min_year){
     return M;
 }
 
+//Entradas: string,tabla hash, int, int
+//Salidas: void
+//Descripcion: inserta un dato en la tabla hash.
 void agregarDatoHash(char * datos, TDAlista ** hash,int min_year,int min_price){
     int year = getYear(datos);
     int price = getPrice(datos);

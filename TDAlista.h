@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "functions.h"
+#include "game.h"
 
 /*------------- estructura de datos -------------*/
 //documentada con formato input,output,desc
@@ -15,6 +16,17 @@ typedef struct listaGenerica
 {
   nodo* inicio;
 }TDAlista;
+
+typedef struct nodojueg
+{
+  game dato;
+  struct nodojueg* siguiente;
+}nodogame;
+
+typedef struct listajueg
+{
+  nodogame* inicio;
+}gamelist;
 
 
 /*------------- operaciones -------------*/
@@ -72,6 +84,13 @@ void insertarInicio(TDAlista* lista, char * dato)
     nodo* nuevo=(nodo*)malloc(sizeof(nodo));
     nuevo->dato=(char *)malloc(sizeof(char)*150);
     strcpy(nuevo->dato,dato);
+    nuevo->siguiente = lista->inicio;
+    lista->inicio=nuevo;
+}
+void insertarIniciogame(gamelist* lista, game dato)
+{
+    nodogame* nuevo=(nodo*)malloc(sizeof(nodogame));
+    nuevo->dato=dato;
     nuevo->siguiente = lista->inicio;
     lista->inicio=nuevo;
 }
