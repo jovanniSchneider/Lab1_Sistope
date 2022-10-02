@@ -4,7 +4,6 @@
 #endif //LAB_1_HASH_H
 #include "TDAlista.h"
 #include <time.h>
-#include "functions.c"
 
 //Entradas: Un entero que representa el año del game
 //Salidas: Un entero correspondiente a la casilla de la tabla hash

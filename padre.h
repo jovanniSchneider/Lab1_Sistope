@@ -3,14 +3,13 @@
 
 #endif //LAB_1_PADRE_H
 
-#include "TDAlista.h"
-
+//#include "hash.h"
 
 //Entradas Char* del nombre del archivo
 //Salidas TdaLista ** que trabaja como una tabla hash
 //Descripcion se lee el archivo solicitado por el usuario, el contenido de este csv se almacena en una tabla hash segun
 //            el year del juego en cuestion
-TDAlista ** leerCSV(char* nombreArchivo, int min_year);
+TDAlista ** leerCSV(char* nombreArchivo, int min_year,int min_price);
 
 //Entradas TDALista** que simula una tabla hash,char* para el nombre del archivo
 //Salidas int que representa la cantidad de years que si tienen juegos

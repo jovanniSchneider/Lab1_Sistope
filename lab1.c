@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "functions.h"
-#include "game.h"
+#include "hijo.c"
 #include "padre.c"
 #include <sys/wait.h>
 #include <unistd.h>
-#include "hijo.c"
 
 
 int main(int argc, char * argv[]) {
@@ -39,12 +37,15 @@ int main(int argc, char * argv[]) {
             pid = fork();//creamos n hijos
             if(pid>0){
                 //espera el estatus de dicho hijo para recien crear al sgte hijo
-                wait(NULL);  
+                wait(NULL);
             }
             if(pid == 0){//si es hijo
                 close(fd[1]);//comunicacion del pipe
                 read(fd[0],&buffer,sizeof(buffer));//leemos y guardamos donde le corresponde del archivo
-                //leerArchivo(fp,buffer,list);//trabajamos con dicha info CREAR LIST
+                gamelist * list;
+                list=crearListaVaciaGame();
+                leerArchivo(fp,buffer,list);//trabajamos con dicha info CREAR LIST
+                recorrerListaGame(list);
                 //aqui debe ir un 
                 //exit(1); //para que el padre rompa su espera 
                 break;//mientras con eso nos aseguramos que los hijos no se reproduzcan

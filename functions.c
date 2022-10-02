@@ -20,14 +20,27 @@ int getYear(char * string) {
     year = atoi(pedacito);
     return year;
 }
+
+char * getGenerico(char * string, int posicion){
+    char string2[150];
+    strcpy(string2,string);
+    char separacion[2] = ",";
+    char * pedacito;
+    pedacito = strtok(string2,separacion);//980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No
+    for (int i = 0; i<posicion;i++){
+        pedacito = strtok(NULL,separacion);
+    }
+    return pedacito;
+}
+
 // Entradas: char*
 // Salidas: int
 // Descripción: transforma un char* a bool(int 0 o 1)
-int convertirBool(char * string) {
+int convertirBool(char string[10]) {
     //True,False,Yes,No
-    if((strcmp(string,"True")==0)||(strcmp(string,"Yes")==0)){
+    if((strcmp(string,"True")==0)||(strcmp(string,"Yes")==0)||(strcmp(string,"Yes\n")==0)){
         return 1;
-    }else if((strcmp(string,"False")==0)||(strcmp(string,"No")==0)){
+    }if((strcmp(string,"False")==0)||(strcmp(string,"No")==0)||(strcmp(string,"No\n")==0)){
         return 0;
     }
     return -1;

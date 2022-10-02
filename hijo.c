@@ -2,40 +2,35 @@
 // Created by jovan on 9/13/2022.
 //
 #include <stdio.h>
-#include "functions.h"
 #include <string.h>//para armar la entrega
-#include "game.h"
-#include "TDAlista.h"
+#include "gameList.h"
 
 
 
 //Entradas: puntero del archivo intermedio creado por el padre y el puntero (long) para saber donde comenzar a leer
 //Salidas: void
 //Descripcion: lee los juegos correspondientes y los almacena
-void leerArchivo(FILE * fp,long puntero,TDAlista* lista){
+void leerArchivo(FILE * fp,long puntero,gamelist * lista){
     fseek(fp,puntero,SEEK_SET);//posicionamiento del puntero en la posicion correspondiente
     char string[150];
-    char * pronto;
-    char * free;
-    char * wi;
-    char * ios;
-    char * lin;
-    int yearSon;
     game juego;
-    fscanf(fp,"%d,%s,%d,%f,%s,%d,%s,%s,%s,%s\n",&juego.ID,juego.name,&juego.ageRest,&juego.price,pronto,&juego.year,free,wi,ios,lin);//primera lectura
-    
-    yearSon=juego.year;
-    //con esto tenemos el primer juego
-    //"980830,Spirit Hunter: Death Mark,18,50.0,False,2019,False,Yes,No,No"
-    
-    do {//se hacen las lecturas correspondientes hasta encontrar un juego que no corresponda al year de este hijo
-        juego.comSoon=convertirBool(pronto);
-        juego.free=convertirBool(free);
-        juego.win=convertirBool(wi);
-        juego.mac=convertirBool(ios);
-        juego.lix=convertirBool(lin);
+    fgets(string,150,fp);
+    int year = getYear(string);
+    printf("Me corresponden los siguientes juegos del year %d:\n",year);
+    do {
+        //38400,Fallout: A Post Nuclear Role Playing Game,16,6.88,False,2015,False,Yes,No,No
+        juego.ID = atoi(getGenerico(string,0));
+        strcpy(juego.name,getGenerico(string,1));
+        juego.ageRest = atoi(getGenerico(string,2));
+        juego.price = getPrice(string);
+        juego.comSoon = convertirBool(getGenerico(string,4));
+        juego.year = getYear(string);
+        juego.free = convertirBool(getGenerico(string,6));
+        juego.win = convertirBool(getGenerico(string,7));
+        juego.mac = convertirBool(getGenerico(string,8));
+        juego.lix = convertirBool(getGenerico(string,9));
+        //printf("%d,%s,%d,%f,%d,%d,%d,%d,%d,%d\n",juego.ID,juego.name,juego.ageRest,juego.price,juego.comSoon,juego.year,juego.free,juego.win,juego.mac,juego.lix);
         insertarIniciogame(lista,juego);
-    }while((fscanf(fp,"%d,%s,%d,%f,%s,%d,%s,%s,%s,%s\n",&juego.ID,juego.name,&juego.ageRest,&juego.price,pronto,&juego.year,free,wi,ios,lin)!=EOF)&&(juego.year==yearSon));
-    //ARRAY de juegos 
+    }while(fgets(string,150,fp)!=NULL && getYear(string) ==year);
     
 }
