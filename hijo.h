@@ -10,3 +10,9 @@
 //Salidas: void
 //Descripcion: lee los juegos correspondientes y los almacena
 void leerArchivo(FILE * fp,long puntero,gamelist * lista);
+
+void juegosFree(char * string, gamelist * lista);
+
+void calcularPromedios(char * string, gamelist * lista);
+
+char * buscarTopAndBottom(char* string, gamelist * lista);
