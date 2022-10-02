@@ -40,16 +40,27 @@ int main(int argc, char * argv[]) {
         //abrimos el archivo 
         FILE * fp;
         fp = fopen("intermedio.txt","r");
-        FILE * archivoSalida = fopen(output,"w");
+        int flag2 = 0;
+        FILE * fr = fopen(output,"r");
+        if(fr!=NULL){
+            flag2 = 1;
+        }
+        fclose(fr);
         for (int i = 0; i < totalYears; i++) {
             pid = fork();//creamos n hijos
             if(pid>0){
+                if(flag2 == 1 && i==0){
+                    FILE * ar = fopen(output,"w");
+                    fclose(ar);
+                }
+                FILE * archivoSalida = fopen(output,"a");
                 char * string2 = (char *) malloc(sizeof (char)*1000);
                 //espera el estatus de dicho hijo para recien crear al sgte hijo
                 wait(NULL);
                 read(fd2[0],string2,sizeof(char)*1000);
-                fprintf(archivoSalida,"%s\n",string);
+                fprintf(archivoSalida,"%s\n",string2);
                 free(string2);
+                fclose(archivoSalida);
             }
             if(pid == 0){//si es hijo
                 close(fd[1]);//comunicacion del pipe
@@ -61,13 +72,12 @@ int main(int argc, char * argv[]) {
                 buscarTopAndBottom(string,list);
                 calcularPromedios(string,list);
                 juegosFree(string,list);
-                write(fd2[1],string, sizeof(char) * strlen(string));
+                write(fd2[1],string, sizeof(char) * 1000);
                 //aqui debe ir un 
                 //exit(1); //para que el padre rompa su espera 
                 exit(1);//mientras con eso nos aseguramos que los hijos no se reproduzcan
             }
         }
-        fclose(archivoSalida);
         fclose(fp);
     }else {
         printf("Por favor ingrese una entrada correcta\n");

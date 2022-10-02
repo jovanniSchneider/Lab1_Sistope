@@ -118,7 +118,7 @@ void calcularPromedios(char * string, gamelist * lista){
 
     strcpy(stringAux,"\nWindows: ");
     strcat(string,stringAux);
-    sprintf(stringAux,"%d",(int)win*100);
+    sprintf(stringAux,"%d",(int)(win*100));
     strcat(string,stringAux);
     //concatenar % de windows
     strcpy(stringAux,"% ");
@@ -127,7 +127,7 @@ void calcularPromedios(char * string, gamelist * lista){
     //% de mac
     strcpy(stringAux,"Mac: ");
     strcat(string,stringAux);
-    sprintf(stringAux,"%d",(int)mac*100);
+    sprintf(stringAux,"%d",(int)(mac*100));
     strcat(string,stringAux);
     strcpy(stringAux,"% ");
     strcat(string,stringAux);
@@ -135,7 +135,7 @@ void calcularPromedios(char * string, gamelist * lista){
     //% de linux
     strcpy(stringAux,"Linux: ");
     strcat(string,stringAux);
-    sprintf(stringAux,"%d",(int)lix*100);
+    sprintf(stringAux,"%d",(int)(lix*100));
     strcat(string,stringAux);
     strcpy(stringAux,"%\n");
     strcat(string,stringAux);
