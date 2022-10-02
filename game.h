@@ -2,7 +2,7 @@
 #include <stdlib.h>
 typedef struct game{
     int ID;
-    char name[50];
+    char name[100];
     int ageRest;
     float price;
     int comSoon;
